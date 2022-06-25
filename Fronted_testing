@@ -3,7 +3,7 @@ import pymysql
 
 
 
-driver = webdriver.Chrome("C:\\Users\\LS\\Desktop\\chromedriver.exe")
+driver = webdriver.Chrome("https://github.com/photop33/Micro-Focus/blob/main/chromedriver.exe")
 driver.get("http://localhost:5500/user/" + user_id + "")
 x=driver.find_element('/html/body/pre')
 print(x.text)
