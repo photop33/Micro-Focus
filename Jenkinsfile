@@ -46,21 +46,6 @@ pipeline {
                     bat "start/min docker run -p 8777:8777 $BUILD_NUMBER "
                 }
             }
-        }
-	stage ('build and push image') { 	
-            steps { 	
-                script {
-                    dockerImage = docker.build registry + ":$BUILD_NUMBER"
-                    docker.withRegistry('', registryCredential) {	
-                    dockerImage.push() 	
-                    }	
-                }  	
-            }	
-	stage('set version') { 	
-            steps {	
-                bat "echo IMAGE_TAG=${BUILD_NUMBER} > .env"   
-			    bat "more .env"
-            }
          }
        }	 
     }
