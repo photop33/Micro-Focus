@@ -39,7 +39,6 @@ pipeline {
                  }
             }
         }    
-
         stage ('Build Docker image - locally'){
             steps {
                 script{
