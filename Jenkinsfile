@@ -39,7 +39,7 @@ pipeline {
                  }
             }
         }    
-        stage ('Build Docker image - locally') {
+	stage('build and push image') {
             steps {
                 script{
                     bat "docker build -t \"$BUILD_NUMBER\" ."
