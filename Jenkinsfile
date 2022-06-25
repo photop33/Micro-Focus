@@ -26,7 +26,7 @@ pipeline {
         stage('Backend_testing') {
             steps {
                 script {
-                    bat 'start Backend_testing.py
+                    bat 'start Backend_testing.py'
                     bat 'echo success Backend_testing'
                 }
             }
