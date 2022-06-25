@@ -19,7 +19,7 @@ pipeline {
             steps {
                 script {
                     bat 'start /min python Flask.py'
-                    bat 'echo success rest_app.py'
+                    bat 'echo success Flask.py'
                 }
             }
         }
