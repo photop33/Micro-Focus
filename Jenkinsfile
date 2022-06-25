@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment { 
         registry = "photop/micro_focus" 
-        registryCredential = 'docker_hub'
+        registryCredential = 'dockerhub_id'
         dockerImage = ""
     } 
     stages {
