@@ -48,5 +48,21 @@ pipeline {
                 }
             }
         }
+	stage('build and push image') { 	
+            steps { 	
+                script {
+                    dockerImage = docker.build registry + ":$BUILD_NUMBER"
+                    docker.withRegistry('', registryCredential) {	
+                    dockerImage.push() 	
+                    }	
+                }  	
+            }	
+	stage('set version') { 	
+            steps {	
+                bat "echo IMAGE_TAG=${BUILD_NUMBER} > .env"   
+			    bat "more .env"
+            }
+         }
+       }	 
     }
 }
