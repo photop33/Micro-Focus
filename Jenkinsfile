@@ -47,7 +47,7 @@ pipeline {
                 }
             }
          }
-	stage('Build Docker image - locally') {
+	stage('build and push image') {
             steps {
                 script{
                     dockerImage = docker.build registry + ":$BUILD_NUMBER"
