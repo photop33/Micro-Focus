@@ -31,6 +31,14 @@ pipeline {
                 }
             }
         }
+	stage('Fronted_testing') {
+            steps {
+                script {
+                    bat 'start Fronted_testing.py'
+                    bat 'echo success Fronted_testing'
+                }
+            }
+        }
 	stage('clean_environemnt') {
             steps {
                 script {
