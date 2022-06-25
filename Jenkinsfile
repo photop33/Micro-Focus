@@ -15,7 +15,7 @@ pipeline {
                 git 'https://github.com/photop33/project3.git'
             }
         }
-                  stage('rest_app.py') {
+                  stage('Flask.py') {
             steps {
                 script {
                     bat 'start /min python Flask.py'
@@ -31,7 +31,7 @@ pipeline {
                 }
             }
         }
-	stage('clean_environemnt-1') {
+	stage('clean_environemnt') {
             steps {
                 script {
                     bat 'start/min python3 clean_environemnt.py'
