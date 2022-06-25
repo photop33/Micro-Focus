@@ -1,16 +1,15 @@
 import os
 import signal
 from flask import Flask, request
+import db_connector
 
 app = Flask(__name__)
 users = {}
 @app.route('/user/<user_id>', methods=['GET', 'POST', 'DELETE', 'PUT'])
-
 def user(user_id):
         if request.method == 'POST':
-            from db_connector import insert_user
             try:
-                user_name = insert_user(user_id)
+                user_name = db_connector.insert_user(user_id)
                 return {'user id': user_id , 'user added':  user_name, 'status': 'ok'}, 200 # status code
             except:
                 return {"status": "error", "reason": "idal ready exists"} ,500
