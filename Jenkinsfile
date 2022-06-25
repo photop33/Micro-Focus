@@ -1,7 +1,7 @@
 pipeline { 
     agent any
     environment { 
-        registry = "photop/project-3" 
+        registry = "photop/micro_focus" 
         registryCredential = 'docker_hub'
         dockerImage = ""
     } 
@@ -39,7 +39,7 @@ pipeline {
                  }
             }
         }    
-	stage('build and push image') {
+	stage('Build Docker image - locally') {
             steps {
                 script{
                     bat "docker build -t \"$BUILD_NUMBER\" ."
@@ -47,5 +47,13 @@ pipeline {
                 }
             }
          }
+	stage('Build Docker image - locally') {
+            steps {
+                script{
+                    dockerImage = docker.build registry + ":$BUILD_NUMBER"
+                    docker.withRegistry('', registryCredential) {	
+                    dockerImage.push() 	
+	    
+	    
        }	 
 }
