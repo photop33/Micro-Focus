@@ -31,10 +31,10 @@ pipeline {
                 }
             }
         }
-	stage('Fronted_testing') {
+	stage('Fronted') {
             steps {
                 script {
-                    bat 'start Fronted_testing.py'
+                    bat 'start Fronted.py'
                     bat 'echo success Fronted_testing'
                 }
             }
